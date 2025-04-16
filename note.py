@@ -6,7 +6,7 @@ class Note:
         self.color = color
         self.x = config.note_dict[self.color][1]
         self.y = y
-        self.velocity = 0.5
+        self.velocity = config.velocity
         self.rect = pygame.Rect(self.x, self.y, 100, 100)
         self.note = pygame.image.load(config.note_dict[self.color][0])
         self.hit = False
