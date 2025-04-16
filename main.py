@@ -19,7 +19,7 @@ def main():
             config.color_timer -= 1
             if config.color_timer <= 0:
                 config.fill_color = (0, 0, 0)
-                config.color_timer = 250
+                config.color_timer = 50
 
         #target notes
         for n in config.target_notes:
@@ -39,14 +39,12 @@ def main():
             note_index += 1
 
         for n in notes:
-            n.update_position()
-            config.screen.blit(n.note, n.rect)
+            n.moving_note(n)
 
         for n in notes:
             if not n.hit:
                 n.update_position()
                 note.Note.check(keys, n)
-            config.screen.blit(n.note, n.rect)
 
         pygame.display.flip()
 

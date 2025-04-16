@@ -7,9 +7,9 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 fill_color = (0, 0, 0)
 score = 0
 velocity = 0.5 #0.5 in the minimum
-color_timer = 100
-note_dict = {"blue":["assets/blue.png", 100, pygame.K_a], "green":["assets/green.png", 233, pygame.K_s],
-             "purple":["assets/purple.png", 366, pygame.K_w], "red":["assets/red.png", 500, pygame.K_d]}
+color_timer = 50
+note_dict = {"blue":["assets/blue.png", 100, pygame.K_LEFT], "green":["assets/green.png", 233, pygame.K_DOWN],
+             "purple":["assets/purple.png", 366, pygame.K_UP], "red":["assets/red.png", 500, pygame.K_RIGHT]}
 notes = []
 chord_rect = pygame.Rect(0, 800, 700, 50)
 target_notes = [note.Note("blue",  775), note.Note("green",  775), note.Note("red",  775), note.Note("purple", 775)]

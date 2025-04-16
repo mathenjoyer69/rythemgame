@@ -27,5 +27,6 @@ class Note:
 
     @staticmethod
     def moving_note(note):
-        note.update_position()
-        config.screen.blit(note.note, note.rect)
+        if not note.hit:
+            note.update_position()
+            config.screen.blit(note.note, note.rect)
