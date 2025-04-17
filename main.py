@@ -4,6 +4,7 @@ import note
 
 def main():
     pygame.init()
+    font = pygame.font.SysFont(None, 48)
     notes = []
     start_time = pygame.time.get_ticks()
     note_index = 0
@@ -25,12 +26,7 @@ def main():
         for n in config.target_notes:
             config.screen.blit(n.note, n.rect)
 
-        #falling notes
-        #for n in config.notes:
-        #    note.Note.moving_note(n)
         keys = pygame.key.get_pressed()
-        #config.notes[0].check(keys, config.notes[0])
-
         current_time = pygame.time.get_ticks() - start_time
 
         if note_index < len(config.note_chart) and current_time >= config.note_chart[note_index][0]:
@@ -42,10 +38,12 @@ def main():
             n.moving_note(n)
 
         for n in notes:
-            if not n.hit:
-                n.update_position()
-                note.Note.check(keys, n)
+            n.update_position()
+            note.Note.check(keys, n)
 
+        text = font.render(f"score: {config.score}", True, (255, 255, 255), (0, 0, 0))
+        text_rect = text.get_rect(center=(100, 100))
+        config.screen.blit(text, text_rect)
         pygame.display.flip()
 
 main()
